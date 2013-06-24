@@ -10,7 +10,7 @@ project(hello)
 find_package(CUDA REQUIRED)
 find_package(MPI REQUIRED)
 find_package(OpenMP REQUIRED)
-# set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin/")
+set(EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin/")
 ############################################################################
 if(MPI_FOUND)
     message("MPI is found on this system.")
@@ -61,5 +61,5 @@ add_test(Test ${MPIEXEC}
 	${MPIEXEC_NUMPROC_FLAG} 3 
 	${MPIEXEC_PREFLAGS} -machinefile mpirun.hosts.ib_mvapich
 	# ${MPIEXEC_PREFLAGS} -nolocal #Nolocal should be passed at the last
-	${CMAKE_CURRENT_BINARY_DIR}/hello)
+	${CMAKE_CURRENT_BINARY_DIR}/bin/hello)
 ############################################################################
